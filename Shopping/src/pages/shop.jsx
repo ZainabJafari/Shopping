@@ -17,22 +17,3 @@ function shop() {
 }
 
 export default shop
-
-
-
-
-    // const [products , setProducten] = useState('')
-    // const getData = ()  =>{
-    //     axiox.get('https://fakestoreapi.com/products').then((res) => {
-    //         const getProduct = (res.data)
-    //         setProducten(getProduct)
-
-    //         console.log(getProduct.id);
-    //         getProduct.map((product) => {
-    //             return product.id
-    //             // console.log(product.title);
-                
-    //         })
-    //     })
-    // }
-    // getData()

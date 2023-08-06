@@ -5,7 +5,11 @@ import Product from './product'
 
 function cart() {
   const {cartItems} = useContext(shopContext)
+  const itemCount = cartItems.reduce((prev , current) =>{
+    return prev + current.count
+  },0)
 
+  
   return (
     <div>
       <div>{ProductsList.map((p) => {

@@ -20,7 +20,7 @@ export const useCart = () => {
     const removeFromCart = (itemId) =>{
         setCartItems(cartItems.map((item) =>{
             if(item.id === itemId)
-            return {...item , count : item.count -1}
+            return {...item ,  count : item.count === 0 ? 0 : item.count -1}
             else return item
         }))
 

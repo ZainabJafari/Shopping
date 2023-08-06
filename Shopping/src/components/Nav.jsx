@@ -3,12 +3,17 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import { Link } from 'react-router-dom'
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-// import  { useContext } from 'react'
-// import { shopContext } from '../context/shopContext'
+import  { useContext } from 'react'
+import { shopContext } from '../context/shopContext'
+import './nav.css'
 
-// const {cartItems} = useContext(shopContext)
 
 function Nav() {
+    const {cartItems} = useContext(shopContext)
+    const itemCount = cartItems.reduce((prev , current) =>{
+        return prev + current.count
+      },0)
+
     return (
         <div>
             <nav className='navbar navbar-dark bg-dark navbar-expand-lg'>
@@ -17,8 +22,8 @@ function Nav() {
                     <ul className="navbar-nav">
                         <li className="nav-item"><Link className='nav-link' to={'/'}>Shop</Link>
                         </li>
-                        <li className="nav-item"><Link className='nav-link' to={'/cart'}><FontAwesomeIcon icon={faShoppingCart} /></Link>
-                        {/* <span>{cartItems.map((p) => {<p>{p.count}</p>}) }</span> */}
+                        <li className="nav-item"><Link className='nav-link' to={'/cart'}><FontAwesomeIcon icon={faShoppingCart} />{itemCount > 0 && <span className='cart-items-count'>{itemCount}</span>}</Link>
+                        
                         </li>
                     </ul>
                 </div>
